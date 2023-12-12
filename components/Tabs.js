@@ -5,6 +5,15 @@ import PopularContent from './Body/PopularContent';
 
 const Tabs = () => {
   const [selectedTab, setSelectedTab] = useState('MyList');
+  fetch('http://localhost:3000')
+    .then((response) => {
+      console.log('Response from server:', response); // Log the entire response
+      console.log('QQQ', response.data); // Log only the response data
+      // ...
+    })
+    .catch((error) => {
+      console.error('Error fetching data:', error);
+    });
 
   const renderContent = () => {
     if (selectedTab === 'MyList') {
