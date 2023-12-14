@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';

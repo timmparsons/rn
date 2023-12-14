@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import MyListContent from './Body/MyListContent';
 import PopularContent from './Body/PopularContent';
+import { getUsers } from '../api';
 
 const Tabs = () => {
   const [selectedTab, setSelectedTab] = useState('MyList');
-  fetch('http://localhost:3000')
-    .then((response) => {
-      console.log('Response from server:', response); // Log the entire response
-      console.log('QQQ', response.data); // Log only the response data
-      // ...
-    })
-    .catch((error) => {
-      console.error('Error fetching data:', error);
-    });
+
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   const renderContent = () => {
     if (selectedTab === 'MyList') {
