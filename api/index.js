@@ -1,5 +1,7 @@
+import { url } from '../components/constants';
+
 export const getUsers = () => {
-  fetch('http://localhost:3000/users')
+  fetch(`${url}/users`)
     .then((response) => {
       return response.json();
     })
