@@ -54,16 +54,7 @@ const styles = StyleSheet.create({
     color: '#7e7e7e',
   },
   selectedTab: {
-    color: 'black', // Change color for the selected tab
-    borderWidth: 1,
-    borderColor: 'lightgray',
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
-    padding: 10,
-    overflow: 'hidden',
-    backgroundColor: 'transparent',
+    color: 'black',
   },
 });
 
