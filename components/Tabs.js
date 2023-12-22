@@ -8,9 +8,17 @@ import { getUsers } from '../api';
 const Tabs = () => {
   const [selectedTab, setSelectedTab] = useState('MyList');
 
-  // useEffect(() => {
-  //   getUsers();
-  // }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await getUsers();
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const renderContent = () => {
     if (selectedTab === 'MyList') {
