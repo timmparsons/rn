@@ -8,9 +8,9 @@ import { getUsers } from '../api';
 const Tabs = () => {
   const [selectedTab, setSelectedTab] = useState('MyList');
 
-  // useEffect(() => {
-  //   getUsers();
-  // }, []);
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   const renderContent = () => {
     if (selectedTab === 'MyList') {
