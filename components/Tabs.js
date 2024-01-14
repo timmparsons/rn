@@ -3,14 +3,22 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import MyListContent from './Body/MyListContent';
 import PopularContent from './Body/PopularContent';
 import MyFriends from './Body/MyFriends';
-import { getUsers } from '../api';
+import { r } from '../api';
 
 const Tabs = () => {
   const [selectedTab, setSelectedTab] = useState('MyList');
 
-  // useEffect(() => {
-  //   getUsers();
-  // }, []);
+  useEffect(() => {
+    const fetchData = () => {
+      try {
+        r();
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const renderContent = () => {
     if (selectedTab === 'MyList') {
