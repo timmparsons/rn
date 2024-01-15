@@ -10,7 +10,7 @@ const ProfileBar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
 
   const performSearch = (text) => {
-    console.log(text);
+    console.log('ProfileBar ', text);
   };
 
   return (

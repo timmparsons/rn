@@ -4,19 +4,33 @@ import MyListContent from './Body/MyListContent';
 import PopularContent from './Body/PopularContent';
 import MyFriends from './Body/MyFriends';
 import { getUsers } from '../api';
+import { getPopularMovies } from '../api';
 
 const Tabs = () => {
   const [selectedTab, setSelectedTab] = useState('MyList');
+  const [popularMovies, setPopularMovies] = useState(null);
 
   useEffect(() => {
-    getUsers();
+    const fetchData = async () => {
+      await getUsers(); // Make sure getUsers is awaited
+      await getPopularMoviesCall();
+    };
+
+    fetchData();
   }, []);
 
+  const getPopularMoviesCall = async () => {
+    const data = await getPopularMovies();
+    console.log('Get popular movies ', data);
+    if (data && data.results) setPopularMovies(data.results);
+  };
+
+  console.log('XXX ', popularMovies);
   const renderContent = () => {
     if (selectedTab === 'MyList') {
       return <MyListContent />;
     } else if (selectedTab === 'Popular') {
-      return <PopularContent />;
+      return <PopularContent data={popularMovies} />;
     } else if (selectedTab === 'MyFriends') {
       return <MyFriends />;
     }
